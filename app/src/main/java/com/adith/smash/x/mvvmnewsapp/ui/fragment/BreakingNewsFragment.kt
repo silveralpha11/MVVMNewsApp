@@ -15,6 +15,7 @@ import com.adith.smash.x.mvvmnewsapp.ui.MainActivity
 import com.adith.smash.x.mvvmnewsapp.ui.NewsViewModel
 import com.adith.smash.x.mvvmnewsapp.util.Constans.Companion.QUERY_PAGE_SIZE
 import com.adith.smash.x.mvvmnewsapp.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 
 
@@ -58,8 +59,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message.let { message ->
-                        Toast.makeText(activity, "An Error occured: $message", Toast.LENGTH_SHORT)
-                            .show()
+                        Snackbar.make(view, "An Error Occured: $message", Snackbar.LENGTH_SHORT).show()
                     }
                 }
 

@@ -16,6 +16,7 @@ import com.adith.smash.x.mvvmnewsapp.ui.MainActivity
 import com.adith.smash.x.mvvmnewsapp.ui.NewsViewModel
 import com.adith.smash.x.mvvmnewsapp.util.Constans
 import com.adith.smash.x.mvvmnewsapp.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_search_news.*
 import kotlinx.android.synthetic.main.fragment_search_news.paginationProgressBar
 import kotlinx.coroutines.Job
@@ -56,7 +57,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message.let {
-                        Toast.makeText(activity, "An Error occured: $it", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(view, "An Error Occured: $it", Snackbar.LENGTH_SHORT).show()
                     }
                 }
 
